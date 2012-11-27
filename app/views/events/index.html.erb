@@ -1,0 +1,14 @@
+<% if @events.empty? %>
+
+  <div class="well" style="text-align: center">
+    <h2>No events were found...</h2>
+    <%= link_to 'Crete a new event', new_event_path %>
+  </div>
+
+<% else %>
+  <ul id="events-list">
+  <% @events.each do |event| %>
+    <li><%= link_to "#{event.soundcloud_artist_name} - #{event.date} - #{event.user.name}", event %></li>
+  <% end %>
+  </ul>
+<% end %>

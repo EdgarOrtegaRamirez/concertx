@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Concertx!</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script type="text/javascript">
+  SC.initialize({
+    client_id: 'f6f238c72b4d7e0b65c235c2590416c6'
+  });
+  </script>
+</head>
+<body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Concertx!</a>
+        <ul class="nav">
+          <li><%= link_to 'Events', root_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "New Event", new_event_path %></li>
+          <% end %>
+        </ul>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.name, edit_user_registration_path %></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log In", user_session_path %></li>
+            <li><%= link_to "Register", new_user_registration_path  %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <% flash.each do |type, message| %>
+      <div class="alert <%= flash_class type %>">
+        <button class="close" data-dismiss="alert">x</button>
+        <%= message %>
+      </div>
+    <% end %>
+         
+    <%= yield %>
+  </div>
+  <div class="row">
+    <div class="span4">Concertx!</div>
+  </div>
+</body>
+</html>

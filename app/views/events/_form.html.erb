@@ -1,0 +1,12 @@
+<%= simple_form_for(@event, html: {class: 'form-horizontal'}) do |f| %>
+  <%= f.input :soundcloud_artist_name, as: :string, input_html: { style: 'width: 100%' } %>
+  <%= f.input :soundcloud_artist_id, as: :hidden %>
+  <%= f.input :soundcloud_track_id, collection: [@event.soundcloud_track_id], :prompt => "Select the track", input_html: { style: 'width: 100%' } %>
+  <%= f.input :date, as: :string %>
+  <%= f.input :price %>
+  <%= f.input :time_duration %>
+  <%= f.input :description, input_html: { style: 'width: 100%;height:200px' } %>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary btn-large' %>
+  </div>
+<% end %>

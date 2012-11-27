@@ -1,0 +1,29 @@
+<h1 class="event-artist"><%= @event.soundcloud_artist_name %></h1>
+<div class="row">
+  <div class="span3">
+    <b>Date</b>: <%= @event.date %>
+  </div>
+  <div class="span2">
+    <b>Price</b>: $ <%= (@event.price > 0) ? @event.price : 'FREE!' %>
+  </div>
+  <div class="span3">
+    <b>Time/Duration</b>: <%= @event.time_duration %>
+  </div>
+  <div class="span4">
+    <b>Created by: </b>: <%= @event.user.name %>
+  </div>
+</div>
+<hr>
+<p class="event-description"><%= simple_format(@event.description) %></p>
+<hr>
+<iput type="hidden" id="track_id" value="<%= @event.soundcloud_track_id %>" />
+<hr>
+<div class="row">
+
+  <div class="span2" style="text-align: center">
+    <% if user_signed_in? and @event.user == current_user %>
+    <%= link_to 'Edit Event', edit_event_path(@event), html_options = {class: 'btn btn-large'}%>
+    <% end %>
+  </div>
+
+</div>

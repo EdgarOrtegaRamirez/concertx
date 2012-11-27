@@ -1,0 +1,17 @@
+defaults: &defaults
+  adapter: postgresql
+  template: template0
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *defaults
+  database: concertx
+
+test:
+  <<: *defaults
+  database: concertx
+
+staging:
+  <<: *defaults
+  database: concertx
