@@ -1,0 +1,4 @@
+<% require "soundcloud" %>
+<% client = Soundcloud.new(client_id: 'f6f238c72b4d7e0b65c235c2590416c6') %>
+<% embed_info = client.get('/oembed', url: @event.soundcloud_track_id) %>
+<%= embed_info['html'].html_safe %>

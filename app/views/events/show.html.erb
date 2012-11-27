@@ -15,8 +15,10 @@
 </div>
 <hr>
 <p class="event-description"><%= simple_format(@event.description) %></p>
+<% if !@event.soundcloud_track_id.empty? %>
 <hr>
-<iput type="hidden" id="track_id" value="<%= @event.soundcloud_track_id %>" />
+<%= render 'player' %>
+<% end %>
 <hr>
 <div class="row">
 

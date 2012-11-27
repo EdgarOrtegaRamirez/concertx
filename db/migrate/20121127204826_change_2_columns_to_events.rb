@@ -1,7 +1,5 @@
 class Change2ColumnsToEvents < ActiveRecord::Migration
-  def up
-  end
-
-  def down
+  def change
+    change_column :events, :soundcloud_track_id, :string
   end
 end

@@ -25,14 +25,10 @@ $(function(){
       SC.get('/users/' + ui.item.id + '/tracks', function(tracks) {
         var select = '';
         for(t in tracks) {
-          select += '<option value="' + tracks[t].id + '">' + tracks[t].title + ' - ' + tracks[t].genre + '</option>';
+          select += '<option value="' + tracks[t].permalink_url + '">' + tracks[t].title + ' - ' + tracks[t].genre + '</option>';
         } 
         $('#event_soundcloud_track_id').html(select);
       });
     }
-  });
-  alert( $('#track_id').val() );
-  SC.stream("/tracks/"+$('#track_id').val(), function(sound){
-    sound.play();
   });
 });
