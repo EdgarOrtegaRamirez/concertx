@@ -10,7 +10,7 @@
   <% @users.each do |follower| %>
     <li class="media-content">
       <%= follower.user.name %>
-      <span class="action-<%= @event.user_id %>"><%= render partial: 'followers/button', locals: {user: follower.user} %></span>
+      <span class="action-<%= follower.user.id %>"><%= render partial: 'followers/button', locals: {user: follower.user} %></span>
     </li>
   <% end %>
   </ul>
