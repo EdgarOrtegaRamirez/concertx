@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127204826) do
+ActiveRecord::Schema.define(:version => 20121128185105) do
 
   create_table "events", :force => true do |t|
     t.date     "date"
@@ -25,9 +25,22 @@ ActiveRecord::Schema.define(:version => 20121127204826) do
     t.string   "soundcloud_track_id"
     t.string   "soundcloud_artist_name"
     t.string   "soundcloud_track_name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
+
+  create_table "followers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "followers", ["user_id", "follower_id"], :name => "index_followers_on_user_id_and_follower_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"

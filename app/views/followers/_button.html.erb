@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <% follow = current_user.followers.following(user.id).first %>
+  <% if follow %>
+    <%= link_to 'Unfollow', user_follower_path(user, follow), remote: true, method: :delete, class: 'btn btn-mini' %>
+  <% else %>
+    <%= link_to 'Follow!', new_user_follower_path(user), remote: true, class: 'btn btn-mini btn-success' %>
+  <% end %>
+<% end %>

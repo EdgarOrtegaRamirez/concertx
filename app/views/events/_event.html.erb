@@ -1,0 +1,14 @@
+<li class="media">
+  <div class="pull-left">
+    <%= image_tag event.image.url(:thumb), class: 'img-polaroid' if !event.image_file_name.nil? %>
+  </div>
+  <div class="media-body">
+    <h3 class="media-heading">
+      <%= link_to event.soundcloud_artist_name, event %> <small>(<%= event.date %> | On <%= distance_of_time_in_words_to_now(event.date, true) %>)</small>
+    </h3>
+    <div class="event-meta">
+      <%= event.time_duration %> | <%= event.user.name %> 
+      <span class="action-<%= event.user_id %>"><%= render partial: 'followers/button', locals: {user: event.user} %></span>
+    </div>
+  </div>
+</li>

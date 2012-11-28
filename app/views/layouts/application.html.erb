@@ -19,8 +19,10 @@
       <div class="container">
         <a class="brand" href="/">Concertx!</a>
         <ul class="nav">
-          <li><%= link_to 'Events', root_path %></li>
+          <li><%= link_to 'All Events', root_path %></li>
           <% if user_signed_in? %>
+            <li><%= link_to "My Feed", feed_path %></li>
+            <li><%= link_to "Followed Users", followed_path %></li>
             <li><%= link_to "New Event", new_event_path %></li>
           <% end %>
         </ul>

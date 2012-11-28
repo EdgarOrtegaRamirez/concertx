@@ -6,14 +6,12 @@
   </div>
 
 <% else %>
-  <ul id="events-list">
+  <ul id="events-list" class="media-list">
   <% @events.each do |event| %>
-    <li>
-      <div class="event-artist"><%= link_to "#{event.soundcloud_artist_name} - #{event.date}", event %></div>
-      <div class="event-meta">
-         <%= "#{event.user.name} | #{event.time_duration}" %>
-      </div>
-    </li>
+    <%= render partial: 'event', locals: {event: event} %>
   <% end %>
   </ul>
+
+  <%= paginate @events %>
+  
 <% end %>

@@ -1,0 +1,18 @@
+<h1>Followed Users</h1>
+<% if @users.empty? %>
+
+  <div class="well" style="text-align: center">
+    <h2>You haven't followed any user...</h2>
+  </div>
+
+<% else %>
+  <ul id="events-list" class="media-list">
+  <% @users.each do |follower| %>
+    <li class="media-content">
+      <%= follower.user.name %>
+      <span class="action-<%= @event.user_id %>"><%= render partial: 'followers/button', locals: {user: follower.user} %></span>
+    </li>
+  <% end %>
+  </ul>
+  
+<% end %>

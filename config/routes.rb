@@ -3,8 +3,16 @@ Concertx::Application.routes.draw do
   resources :events
 
   devise_for :users
+  
+  resources :users do
+    resources :followers
+  end
 
   root to: "events#index"
+
+  get 'feed', to: 'events#list', as: :feed
+  get 'followed', to: 'events#followed', as: :followed
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

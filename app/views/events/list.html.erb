@@ -1,0 +1,17 @@
+<h1>Events from my followed users</h1>
+<% if @events.empty? %>
+
+  <div class="well" style="text-align: center">
+    <h2>No events were found...</h2>
+  </div>
+
+<% else %>
+  <ul id="events-list" class="media-list">
+  <% @events.each do |event| %>
+    <%= render partial: 'event', locals: {event: event} %>
+  <% end %>
+  </ul>
+
+  <%= paginate @events %>
+  
+<% end %>

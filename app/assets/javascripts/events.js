@@ -21,12 +21,11 @@ $(function(){
       });
     },
     select: function(event, ui) {
-      $('#event_soundcloud_artist_id').val(ui.item.id);
       SC.get('/users/' + ui.item.id + '/tracks', function(tracks) {
         var select = '';
         for(t in tracks) {
           select += '<option value="' + tracks[t].permalink_url + '">' + tracks[t].title + ' - ' + tracks[t].genre + '</option>';
-        } 
+        }
         $('#event_soundcloud_track_id').html(select);
       });
     }

@@ -2,16 +2,16 @@ ul#events-list {
   list-style: none;
 }
 ul#events-list li {
-  transition: all 2s;
-  -moz-transition: all 2s;
-  -webkit-transition: all 2s;
-  -o-transition: all 2s;
-  padding: 15px;
+  transition: all 1s;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  padding: 10px 15px;
   margin-bottom: 5px;
 }
 ul#events-list li:hover {
   background-color: #eee;
-  box-shadow: 1px 1px 5px gray;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px silver;
 }
 ul#events-list li .event-artist {
   font-size: 20px;

@@ -9,7 +9,8 @@ gem 'pg'
 gem 'devise', '2.1.2'
 gem 'simple_form', '2.0.4'
 gem 'soundcloud'
-
+gem 'paperclip'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.
