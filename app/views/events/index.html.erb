@@ -8,7 +8,12 @@
 <% else %>
   <ul id="events-list">
   <% @events.each do |event| %>
-    <li><%= link_to "#{event.soundcloud_artist_name} - #{event.date} - #{event.user.name}", event %></li>
+    <li>
+      <div class="event-artist"><%= link_to "#{event.soundcloud_artist_name} - #{event.date}", event %></div>
+      <div class="event-meta">
+         <%= "#{event.user.name} | #{event.time_duration}" %>
+      </div>
+    </li>
   <% end %>
   </ul>
 <% end %>
