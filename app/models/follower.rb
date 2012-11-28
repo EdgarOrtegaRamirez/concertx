@@ -5,8 +5,4 @@ class Follower < ActiveRecord::Base
   belongs_to :follower, class_name: "User"
 
   scope :following, lambda {|user_id| where(user_id: user_id) }
-
-  def following
-
-  end
 end

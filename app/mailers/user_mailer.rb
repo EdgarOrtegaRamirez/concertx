@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
     @event = event
     Follower.following(current_user.id).each do |follower|
       
-      mail(to: follower.user.email, subject: "#{event.user.name} published a new event!")
+      mail(to: follower.follower.email, subject: "#{event.user.name} published a new event!")
 
     end
   end

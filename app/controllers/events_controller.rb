@@ -47,7 +47,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   
     if @event.update_attributes(params[:event])
-      UserMailer.new_event(@event, current_user).deliver
       flash[:notice] = 'Your event was edited successfully'
       redirect_to action: 'show', id: @event
     else
